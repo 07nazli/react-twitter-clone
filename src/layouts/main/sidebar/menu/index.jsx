@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import { mainMenu } from "../../../../utils/consts";
-import Button from "../../../../components/button";
 
 export default function Menu() {
     return (
@@ -45,8 +44,6 @@ export default function Menu() {
 							</div>
 						</div>
 				</button>
-
-				{/*<Button> */}
          </nav>
     )
 }
