@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
                 element: <Bookmarks />
             },
             {
-                path: 'slug',
+                path: ':slug',
                 element: <Profile />
             },
             {
