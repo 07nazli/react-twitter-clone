@@ -182,3 +182,45 @@ export const mainMenu = [
         
     },
 ]
+
+export const topics = [
+    {
+        title: 'Politics · Trending',
+        topic: {
+            type: 'tag',
+            value: 'person'
+        }
+    },
+    {
+        title: 'Politics · Trending',
+        topic: {
+            type: 'tag',
+            value: 'person'
+        }
+    },
+    {
+        title: 'Business & finance · Trending',
+        topic: {
+            type: 'query',
+            value: 'Starlink'
+        },
+        postCount: 15640
+    },
+    {
+        title: 'Business & finance · Trending',
+        topic: {
+            type: 'query',
+            value: 'Starlink'
+        },
+        postCount: 15640
+    },
+    {
+        title: 'Business & finance · Trending',
+        topic: {
+            type: 'query',
+            value: 'Starlink'
+        },
+        postCount: 15640
+    },
+    
+]

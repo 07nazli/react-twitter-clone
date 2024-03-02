@@ -32,7 +32,7 @@ export default function Search() {
                 <input 
                     type="text"
                     placeholder="Search"
-                    className="w-full h-full bg-transparent rounded-full outline-none pl-[56px] text-[15px]" 
+                    className="w-full h-full bg-transparent placeholder-[#71767b] rounded-full outline-none pl-[56px] text-[15px]" 
                     value={query}
                     onFocus={() => setFocus(true)}
                     onChange={e => setQuery(e.target.value)}
