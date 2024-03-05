@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-black text-white antialiased;
+    @apply bg-[color:var(--background-primary)] text-[color:var(--color-base)] text-[15px];
 }
 
 /*
