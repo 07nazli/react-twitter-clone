@@ -17,12 +17,11 @@ const initialState = {
   boxShadow:
     "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px",
   fontSize: 16,
-
   /* KOYU
   backgroundColor: {
     primary: "#15202b",
     secondary: "#1e2732",
-    third: "#263340",
+    third: "#263340", 
     modal: "#5b708366",
   },
   color: {
@@ -35,8 +34,8 @@ const initialState = {
     "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px",
   fontSize: 16,
 */
-  /* AÇIK
-    backgroundColor: {
+  /*
+  backgroundColor: {
     primary: "#fff",
     secondary: "#f7f9f9",
     third: "#eff3f4",
@@ -60,15 +59,14 @@ const appearance = createSlice({
     setBackgroundColor: (state, action) => {
       state.backgroundColor = action.payload;
     },
-    _setColor: (state, action) => {
+    setColor: (state, action) => {
       state.color = action.payload;
     },
-    _setFontSize: (state, action) => {
+    setFontSize: (state, action) => {
       state.fontSize = action.payload;
     },
   },
 });
 
-export const { setBackgroundColor, _setColor, _setFontSize } =
-  appearance.actions;
+export const { setBackgroundColor, setColor, setFontSize } = appearance.actions;
 export default appearance.reducer;
