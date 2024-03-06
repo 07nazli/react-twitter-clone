@@ -8,7 +8,7 @@ export default function More() {
 		<Popover className="relative">
 			<Popover.Button className="py-[3px] w-full text-left group outline-none">
 				<div
-					className="p-3 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-[#eff3f41a]">
+					className="p-3 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]">
 					<div className="w-[1.641rem] h-[1.641rem] relative">
 						<svg viewBox="0 0 24 24" className="h-[1.641rem]">
 							<path

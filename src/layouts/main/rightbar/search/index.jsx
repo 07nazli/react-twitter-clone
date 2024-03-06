@@ -16,7 +16,7 @@ export default function Search() {
             ref={ref}
             className="min-h-[32px] h-[53px] mb-3 flex items-center sticky top-0 bg-[color:var(--background-primary)] z-10"
         >
-            <label className="h-[43px] rounded-full bg-[color:var(--background-third)] w-full relative group border border-transparent focus-within:bg-black focus-within:border-[#1d9bf0]">  
+            <label className="h-[43px] rounded-full bg-[color:var(--background-third)] w-full relative group border border-transparent focus-within:bg-[color:var(--background-primary)] focus-within:border-[#1d9bf0]">  
                 <div className="w-[56px] h-[40px] f-full flex items-center justify-center absolute top-0 left-0">
                 <svg 
                     viewBox="0 0 24 24" 
@@ -53,7 +53,7 @@ export default function Search() {
             </label>
             {focus && (
                     <div
-                        className="absolute w-[350px] top-full -left-px -tanslate-y-1 bg-black shadow-box max-h-[calc(80vh-53px)] rounded-lg text-center min-h-[100px]">
+                        className="absolute w-[350px] top-full -left-px -tanslate-y-1 bg-[color:var(--background-primary)] shadow-box max-h-[calc(80vh-53px)] rounded-lg text-center min-h-[100px]">
                         <p className="p-3 pt-5 text-[color:var(--color-base-secondary)] leading-5">
                         Try searching for people, lists, or keywords
                         </p>

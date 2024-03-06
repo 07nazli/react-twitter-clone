@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom"
+import Button from "../../components/buttons"
+import { useAppearance } from "../../store/appearance/hooks"
+import classNames from "classnames"
+import { setBackgroundColor } from "../../store/appearance"
+import {useEffect} from 'react'
+import store from "../../store"
 
 export default function AppearanceModal() {
+
+    const { backgroundColor } = useAppearance()
+
+    
+
     return (
         <div className="w-[600px]">
             <h3 className="mt-8 mb-3 text-[23px] leading-7 font-extrabold text-center">
@@ -11,7 +22,7 @@ export default function AppearanceModal() {
                     These settings affect all the X accounts on this browser.
                 </p>
                 <div className="mx-8 mb-4 ">
-                    <div className="border border-[#2f3336] px-4 flex py-3 gap-3 rounded-2xl">
+                    <div className="border border-[color:var(--background-third)] px-4 flex py-3 gap-3 rounded-2xl">
                         <img
                             src="https://pbs.twimg.com/profile_images/1683325380441128960/yRsRRjGO_x96.jpg"
                             alt=""
@@ -32,12 +43,70 @@ export default function AppearanceModal() {
                                     @X · 2h
                                 </div>
                             </header>
-                            <div className="text-[#e7e9ea] leading-5 text-[15px] ">
+                            <div className="text-[color:var(--color-base)] leading-5 text-[15px] ">
                                 At the heart of X are short messages called posts — just like this one — which can include photos, videos, links, text, hashtags and  mentions like <Link to="/x" className="text-[#1d9bf0] hover hover:underline">@X</Link>.
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+                    <h6 className="text-[color:var(--color-base-secondary)] mb-1 leading-5 text-[13px] font-bold">Background</h6>
+                    <div className="py-1 px-3 mb-3 grid gap-1 grid-cols-3 bg-[color:var(--background-secondary)] rounded-2xl">
+                        <button 
+                            onClick={() => {store.dispatch(
+                                setBackgroundColor({
+                                    name: 'light',
+                                    primary: '#ffffff',
+                                    secondary: '#f7f9f9',
+                                    third: '#eff3f4',
+                                    modal: '#00000066'
+                                })
+                            )}}
+                            className={classNames("h-16 px-5 bg-white text-[#0f1419] border font-bold border-white/10 rounded", {
+                                "!border-[color:var(--color-primary)]": backgroundColor.name === "light"
+                            })}
+                        >
+                            Default
+                        </button>
+                        <button
+                            onClick={() => {store.dispatch(
+                                setBackgroundColor({
+                                    name: 'dim',
+                                    primary: '#15202b',
+                                    secondary: '#1e2732',
+                                    third: '#263340',
+                                    modal: '#5b708366'
+                                })
+                             )}}
+                            className={classNames("h-16 px-5 bg-[#15202b] text-[#f7f9f9] border font-bold border-white/10 rounded", {
+                                "!border-[color:var(--color-primary)]": backgroundColor.name === "dim"
+                            })}
+                        >
+                            Dim
+                        </button>
+                        <button 
+                        onClick={() => {store.dispatch(
+                            setBackgroundColor({
+                                name: 'dark',
+                                primary: '#000000',
+                                secondary: '#16181c',
+                                third: '#212327',
+                                modal: '#5b708366'
+                            })
+                         )}}
+                            className={classNames("h-16 px-5 bg-black text-[#f7f9f9] border font-bold border-white/10 rounded", {
+                                "!border-[color:var(--color-primary)]": backgroundColor.name === "dark"
+                            })}
+                        >
+                            Lights out
+                        </button>
+                    </div>
+
+                <div className="flex items-center justify-center pt-4">
+					<Button onClick={close}>Finished</Button>
+				</div>
+
             </div>
         </div>
     )
