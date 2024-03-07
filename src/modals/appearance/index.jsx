@@ -6,20 +6,36 @@ import { setBackgroundColor, setColor, setFontSize } from "../../store/appearanc
 import store from "../../store"
 import { colors, fontSizes } from "../../utils/consts"
 import { useDispatch, useSelector } from "react-redux";
+import { useRef, useEffect } from "react"
 
 export default function AppearanceModal({close}) {
-
-    const { backgroundColor, fontSize } = useAppearance()
+    const modalRef = useRef(null);
+    const { backgroundColor,  fontSize } = useAppearance()
     const dispatch = useDispatch()
     const color = useSelector((state) => state.appearance.color);
+
+    const handleOutsideClick = (e) => {
+        console.log('iceri')
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            console.log('disari')
+          close()
+        }
+      };
     
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+          document.removeEventListener("mousedown", handleOutsideClick);
+        };
+      });
+      
 
     return (
-        <div className="w-[600px]">
+        <div className="w-[600px]" ref={modalRef}>
             <h3 className="mt-8 mb-3 text-[23px] leading-7 font-extrabold text-center">
                 Customize Your View
             </h3>
-            <div className="p-8 pt-0 ">
+            <div className="p-8 pt-0 " >
                 <p className="text-center text-[color:var(--color-base-secondary)] leading-5 text-[15px] mb-5">
                     These settings affect all the X accounts on this browser.
                 </p>
@@ -197,7 +213,7 @@ export default function AppearanceModal({close}) {
                     </div>
 
                     <div className="flex items-center justify-center pt-4">
-					    <Button as="button" onClick={close} variant="primary">Finished</Button>
+					    <Button as="button" onClick={()=> close()} variant="primary">Finished</Button>
 				    </div>
 
             </div>
