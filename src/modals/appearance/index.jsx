@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Button from "../../components/buttons"
+import Button from "../../components/button"
 import { useAppearance } from "../../store/appearance/hooks"
 import classNames from "classnames"
 import { setBackgroundColor, setColor, setFontSize } from "../../store/appearance"
@@ -58,9 +58,10 @@ export default function AppearanceModal({close}) {
                         <div className="bg-[color:var(--background-secondary)] p-4 rounded-2xl flex items-center gap-5">
                             <div className="text-[13px]">Aa</div>
                             <div className="h-1 bg-[color:var(--color-secondary)] flex-1 rounded-full flex justify-between">
-                                {fontSizes.map(fs => (
+                                {fontSizes.map((fs, index) => (
                                     <button 
                                         type="button"
+                                        key={index}
                                         onClick={() => setFontSize(fs)}
                                         className="before:absolute before:inset-0 before:rounded-full before:hover:bg-[color:var(--color-primary)] before:opacity-20 w-8 h-8 rounded-full flex items-center justify-center relative -top-3.5 first:-ml-2 last:-mr-2">
                                         <div className={classNames("w-3 h-3 rounded-full bg-[color:var(--color-secondary)]", {
@@ -196,7 +197,7 @@ export default function AppearanceModal({close}) {
                     </div>
 
                     <div className="flex items-center justify-center pt-4">
-					    <Button onClick={close}>Finished</Button>
+					    <Button as="button" onClick={close} variant="primary">Finished</Button>
 				    </div>
 
             </div>
